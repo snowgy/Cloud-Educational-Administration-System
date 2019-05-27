@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Student Home</title>
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin"
+          rel="stylesheet" type="text/css">
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- DEMO ONLY: Function for the proper stylesheet loading according to the demo settings -->
+    <script>function _pxDemo_loadStylesheet(a, b, c) {
+        var c = c || decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "clean"),
+            d = "rtl" === document.getElementsByTagName("html")[0].getAttribute("dir");
+        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("../css") && 0 !== a.indexOf("../demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
+    }</script>
+
+    <!-- DEMO ONLY: Set RTL direction -->
+    <script>"ltr" !== document.getElementsByTagName("html")[0].getAttribute("dir") && "1" === decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-rtl") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "0") && document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");</script>
+
+    <!-- DEMO ONLY: Load PixelAdmin core stylesheets -->
+    <script>
+        _pxDemo_loadStylesheet('../css/bootstrap.min.css', 'px-demo-stylesheet-bs');
+        _pxDemo_loadStylesheet('../css/pixeladmin.min.css', 'px-demo-stylesheet-core');
+        _pxDemo_loadStylesheet('../css/widgets.min.css', 'px-demo-stylesheet-widgets');
+    </script>
+
+    <!-- DEMO ONLY: Load theme -->
+    <script>
+        function _pxDemo_loadTheme(a) {
+            var b = decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "clean");
+            _pxDemo_loadStylesheet(a + b + ".min.css", "px-demo-stylesheet-theme", b)
+        }
+
+        _pxDemo_loadTheme('../css/themes/');
+    </script>
+
+    <!-- Demo ../static -->
+    <script>_pxDemo_loadStylesheet('../demo/demo.css');</script>
+    <!-- / Demo ../static -->
+
+    <!-- holder.js -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
+
+    <!-- Pace.js -->
+    <script src="../js/pace.min.js"></script>
+
+    <script src="../demo/demo.js"></script>
+
+    <!-- Custom styling -->
+    <style>
+        .page-header-form .input-group-addon,
+        .page-header-form .form-control {
+            background: rgba(0, 0, 0, .05);
+        }
+    </style>
+    <!-- / Custom styling -->
+</head>
+<body>
+
+<nav class="px-nav px-nav-left">
+    <button type="button" class="px-nav-toggle" data-toggle="px-nav">
+        <span class="px-nav-toggle-arrow"></span>
+        <span class="navbar-toggle-icon"></span>
+        <span class="px-nav-toggle-label font-size-11">HIDE MENU</span>
+    </button>
+
+    <ul class="px-nav-content">
+        <li class="px-nav-item">
+            <a href="../userHome"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All Courses</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="../myscripts"><i class="px-nav-icon ion-ios-paperplane"></i><span
+                    class="px-nav-label">Selected Courses</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="../createScript"><i class="px-nav-icon ion-edit"></i><span
+                    class="px-nav-label">Change Password</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="../createScript"><i class="px-nav-icon ion-log-out"></i><span
+                    class="px-nav-label">Exit</span></a>
+        </li>
+        <!--<li class="px-nav-item">-->
+        <!--<a href="../uploadscript"><i class="px-nav-icon ion-ios-cloud-upload"></i><span-->
+        <!--class="px-nav-label">Upload</span></a>-->
+        <!--</li>-->
+    </ul>
+</nav>
+
+<nav class="navbar px-navbar">
+    <!-- Header -->
+    <div class="navbar-header">
+        <a class="navbar-brand px-demo-brand" href="../index"><span class="px-demo-logo bg-primary"><span
+                class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span
+                class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span
+                class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span
+                class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span
+                class="px-demo-logo-9"></span></span>
+        </a>
+    </div>
+
+    <!-- Navbar togglers -->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#px-demo-navbar-collapse"
+            aria-expanded="false"><i class="navbar-toggle-icon"></i></button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="px-demo-navbar-collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="demo/avatars/1.jpg" alt="" class="px-navbar-image">
+                    <!--<span class="hidden-md">John Doe</span>
+                    --><span th:text="${user.name}" class="hidden-md">Anonymous</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="px-content">
+    <ol class="breadcrumb page-breadcrumb">
+        <li><a href="/userHome">Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-4 text-xs-center text-md-left text-nowrap">
+                <h1><i class="page-header-icon ion-ios-pulse-strong"></i>Dashboard</h1>
+            </div>
+
+            <hr class="page-wide-block visible-xs visible-sm">
+
+            <div class="col-xs-12 width-md-auto width-lg-auto width-xl-auto pull-md-right">
+                <a href="createScript" class="btn btn-primary btn-block"><span
+                        class="btn-label-icon left ion-plus-round"></span>Create
+                    project</a>
+            </div>
+
+            <!-- Spacer -->
+            <div class="m-b-2 visible-xs visible-sm clearfix"></div>
+
+            <form action="/search" method="post" class="page-header-form col-xs-12 col-md-4 pull-md-right">
+                <div class="input-group">
+                    <span class="input-group-addon b-a-0 font-size-16"><i class="ion-search"></i></span>
+                    <input type="text" placeholder="Search..." class="form-control p-l-0 b-a-0" name="str">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
+
+<footer class="px-footer px-footer-bottom p-t-0">
+    <br>
+    <span class="text-muted">Copyright © 2018 PixelAdmin LLC. All rights reserved.</span>
+</footer>
+
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/pixeladmin.min.js"></script>
+
+<script>
+    // -------------------------------------------------------------------------
+    // Initialize DEMO sidebar
+
+    $(function () {
+        pxDemo.initializeDemoSidebar();
+
+        $('#px-demo-sidebar').pxSidebar();
+        pxDemo.initializeDemo();
+    });
+</script>
+
+<script type="text/javascript">
+    // -------------------------------------------------------------------------
+    // Initialize DEMO
+
+    $(function () {
+
+        // $('.header').load("header.html");
+        $('.sidebar').load("sidebar.html");
+
+        var file = String(document.location).split('/').pop();
+
+        // Remove unnecessary file parts
+        file = file.replace(/(\.html).*/i, '$1');
+
+        if (!/.html$/i.test(file)) {
+            file = 'index.html';
+        }
+
+        // Activate current nav item
+        $('body > .px-nav')
+            .find('.px-nav-item > a[href="' + file + '"]')
+            .parent()
+            .addClass('active');
+
+        $('body > .px-nav').pxNav();
+        $('body > .px-footer').pxFooter();
+
+        $('#navbar-notifications').perfectScrollbar();
+        $('#navbar-messages').perfectScrollbar();
+    });
+
+</script>
+</body>
+</html>
