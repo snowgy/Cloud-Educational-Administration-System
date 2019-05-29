@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>Teacher Home</title>
+    <title>Edit Course</title>
 
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin"
           rel="stylesheet" type="text/css">
@@ -73,11 +73,19 @@
 
     <ul class="px-nav-content">
         <li class="px-nav-item">
-            <a href="/teacher/teacherHome"><i class="px-nav-icon ion-map"></i><span
-                    class="px-nav-label">My Courses</span></a>
+            <a href="/admin/adminHome"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All students</span></a>
         </li>
         <li class="px-nav-item">
-            <a href="/teacher/changePassword"><i class="px-nav-icon ion-edit"></i><span
+            <a href="/admin/adminTeacher"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All teachers</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="/admin/adminCourse"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All courses</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="/admin/changePassword"><i class="px-nav-icon ion-edit"></i><span
                     class="px-nav-label">Change Password</span></a>
         </li>
         <li class="px-nav-item">
@@ -120,6 +128,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
+                    <img src="demo/avatars/1.jpg" alt="" class="px-navbar-image">
                     <!--<span class="hidden-md">John Doe</span>
                     --><span th:text="${user.name}" class="hidden-md">Anonymous</span>
                 </a>
@@ -134,34 +143,48 @@
 </nav>
 
 <div class="px-content">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Teacher</th>
-            <th scope="col">Time</th>
-            <th scope="col">Location</th>
-            <th scope="col">Weeks</th>
-            <th scope="col">Type</th>
-            <th scope="col">Credits</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="course,courseStat : ${courses}">
-            <th th:text="${courseStat.count}" scope="row"></th>
-            <td th:text="${course.name}"></td>
-            <td th:text="${course.teacher.name}"></td>
-            <td th:text="${course.courseTime}"></td>
-            <td th:text="${course.classroom}"></td>
-            <td th:text="${course.courseWeek}"></td>
-            <td th:text="${course.courseType}"></td>
-            <td th:text="${course.credit}"></td>
+    <div class="box-row">
+        <div class="box-cell col-md-7">
+            <form action="/editCourseAction" method = "post" class="p-a-4" id="page-signin-form">
+                <h4 class="m-t-0 m-b-4 text-xs-center font-weight-semibold">Edit Course Information</h4>
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="name" th:value="${course.name}" name = "name">
+                </fieldset>
 
-        </tr>
-        </tbody>
-    </table>
-    <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="classroom" th:value="${course.classroom}" name = "classroom">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="course time" th:value="${course.courseTime}" name = "courseTime">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="course type" th:value="${course.courseType}" name = "courseType">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="course week" th:value="${course.courseWeek}" name = "courseWeek">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control" placeholder="credit" th:value="${course.credit}" name = "credit">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control"  placeholder="teacher" th:value="${course.teacher.name}" name = "teacher">
+                </fieldset>
+
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+                    <input type="text" class="page-signin-form-control form-control"  placeholder="department" th:value="${course.department.name}" name = "department">
+                </fieldset>
+
+                <button type="submit" class="btn btn-block btn-lg btn-primary m-t-3">Submit</button>
+            </form>
+            <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+        </div>
+    </div>
+
 </div>
 
 <footer class="px-footer px-footer-bottom p-t-0">

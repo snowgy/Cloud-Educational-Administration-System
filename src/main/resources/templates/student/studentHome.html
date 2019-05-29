@@ -14,7 +14,6 @@
     <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <!-- DEMO ONLY: Function for the proper stylesheet loading according to the demo settings -->
     <script>function _pxDemo_loadStylesheet(a, b, c) {
         var c = c || decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "clean"),
@@ -74,19 +73,19 @@
 
     <ul class="px-nav-content">
         <li class="px-nav-item">
-            <a href="../userHome"><i class="px-nav-icon ion-map"></i><span
+            <a href="/student/studentHome"><i class="px-nav-icon ion-map"></i><span
                     class="px-nav-label">All Courses</span></a>
         </li>
         <li class="px-nav-item">
-            <a href="../myscripts"><i class="px-nav-icon ion-ios-paperplane"></i><span
+            <a th:href="@{'/student/selectedCourse/'+${user.name}+'/'+${user.college.name}}"><i class="px-nav-icon ion-ios-paperplane"></i><span
                     class="px-nav-label">Selected Courses</span></a>
         </li>
         <li class="px-nav-item">
-            <a href="../createScript"><i class="px-nav-icon ion-edit"></i><span
+            <a href="/student/changePassword"><i class="px-nav-icon ion-edit"></i><span
                     class="px-nav-label">Change Password</span></a>
         </li>
         <li class="px-nav-item">
-            <a href="../createScript"><i class="px-nav-icon ion-log-out"></i><span
+            <a href="/logout"><i class="px-nav-icon ion-log-out"></i><span
                     class="px-nav-label">Exit</span></a>
         </li>
         <!--<li class="px-nav-item">-->
@@ -99,12 +98,15 @@
 <nav class="navbar px-navbar">
     <!-- Header -->
     <div class="navbar-header">
-        <a class="navbar-brand px-demo-brand" href="../index"><span class="px-demo-logo bg-primary"><span
+        <a class="navbar-brand px-demo-brand" href="../index">
+            <span class="px-demo-logo bg-primary"><span
                 class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span
                 class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span
                 class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span
-                class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span
-                class="px-demo-logo-9"></span></span>
+                class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span>
+                <span class="px-demo-logo-9"></span>
+            </span>
+            <span th:text="${user.college.name}"></span>
         </a>
     </div>
 
@@ -137,46 +139,46 @@
 </nav>
 
 <div class="px-content">
-    <ol class="breadcrumb page-breadcrumb">
-        <li><a href="/userHome">Home</a></li>
-        <li class="active">Dashboard</li>
-    </ol>
-
-    <div class="page-header">
-        <div class="row">
-            <div class="col-md-4 text-xs-center text-md-left text-nowrap">
-                <h1><i class="page-header-icon ion-ios-pulse-strong"></i>Dashboard</h1>
-            </div>
-
-            <hr class="page-wide-block visible-xs visible-sm">
-
-            <div class="col-xs-12 width-md-auto width-lg-auto width-xl-auto pull-md-right">
-                <a href="createScript" class="btn btn-primary btn-block"><span
-                        class="btn-label-icon left ion-plus-round"></span>Create
-                    project</a>
-            </div>
-
-            <!-- Spacer -->
-            <div class="m-b-2 visible-xs visible-sm clearfix"></div>
-
-            <form action="/search" method="post" class="page-header-form col-xs-12 col-md-4 pull-md-right">
-                <div class="input-group">
-                    <span class="input-group-addon b-a-0 font-size-16"><i class="ion-search"></i></span>
-                    <input type="text" placeholder="Search..." class="form-control p-l-0 b-a-0" name="str">
-                </div>
-            </form>
-
-        </div>
-    </div>
-
-
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Time</th>
+            <th scope="col">Location</th>
+            <th scope="col">Weeks</th>
+            <th scope="col">Type</th>
+            <th scope="col">Credits</th>
+            <th scope="col">Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course,courseStat : ${courses}">
+            <th th:text="${courseStat.count}" scope="row"></th>
+            <td th:text="${course.name}"></td>
+            <td th:text="${course.teacher.name}"></td>
+            <td th:text="${course.courseTime}"></td>
+            <td th:text="${course.classroom}"></td>
+            <td th:text="${course.courseWeek}"></td>
+            <td th:text="${course.courseType}"></td>
+            <td th:text="${course.credit}"></td>
+            <td>
+                <form action="#" th:action="@{'/selectCourse/'+${user.name}+'/'+${course.id}+'/'+${user.college.name}}" th:method="get" >
+                    <button type="submit" class="btn btn-primary btn-sm">choose</button>
+                </form>
+                <!--<button type="button" class="btn btn-primary btn-sm">choose</button>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
 </div>
 
 <footer class="px-footer px-footer-bottom p-t-0">
     <br>
     <span class="text-muted">Copyright © 2018 PixelAdmin LLC. All rights reserved.</span>
 </footer>
-
 <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -194,7 +196,6 @@
         pxDemo.initializeDemo();
     });
 </script>
-
 <script type="text/javascript">
     // -------------------------------------------------------------------------
     // Initialize DEMO
@@ -227,5 +228,6 @@
     });
 
 </script>
+
 </body>
 </html>

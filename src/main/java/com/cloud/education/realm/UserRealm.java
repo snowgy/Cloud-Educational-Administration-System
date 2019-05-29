@@ -21,7 +21,7 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         // get user role
         String userName = (String) getAvailablePrincipal(principalCollection);
-        User user = userService.findStudentByName(userName);
+        User user = userService.findUserByName(userName);
         Role role = user.getRole();
         // get user permissions
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -36,11 +36,15 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        // get username
-        String userName = (String) authenticationToken.getPrincipal();
+        // get username and collegeName
+        String userNameAndCollegeName = (String) authenticationToken.getPrincipal();
+        System.out.println("auth:" + userNameAndCollegeName);
+        String[] splited = userNameAndCollegeName.split("\\s+");
+        String userName = splited[0];
+        String collegeName  = splited[1];
         // get password
         String password = new String((char[])authenticationToken.getCredentials());
-        User user = userService.findStudentByName(userName);
+        User user = userService.findUserByNameAndCollege(userName, collegeName);
 
         if (user == null) {
             throw new UnknownAccountException();

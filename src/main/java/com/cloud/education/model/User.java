@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -15,8 +17,8 @@ import java.util.List;
 @Table(name="user")
 public class User {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id")
     private long id;
 
     @Column(name = "name", nullable = false)
@@ -57,12 +59,37 @@ public class User {
     private Role role;
 
     @JsonBackReference(value = "student-select-course")
-    @OneToMany(
-            mappedBy = "student",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.ALL
+    })
+    @JoinTable(name="student_course",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="course_id")
     )
-    private List<Course> selectedCourses = new ArrayList<>();
+    private Set<Course> selectedCourses = new HashSet<>();
+
+    public void addCourse(Course course){
+        selectedCourses.add(course);
+        course.getStudents().add(this);
+    }
+
+    public void removeCourse(Course course){
+        selectedCourses.remove(course);
+        course.getStudents().remove(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        User user = (User) obj;
+        return this.id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 
     @JsonBackReference(value = "teacher-manage-course")
     @OneToMany(

@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>Teacher Home</title>
+    <title>Admin Home</title>
 
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin"
           rel="stylesheet" type="text/css">
@@ -73,11 +73,19 @@
 
     <ul class="px-nav-content">
         <li class="px-nav-item">
-            <a href="/teacher/teacherHome"><i class="px-nav-icon ion-map"></i><span
-                    class="px-nav-label">My Courses</span></a>
+            <a href="/admin/adminHome"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All students</span></a>
         </li>
         <li class="px-nav-item">
-            <a href="/teacher/changePassword"><i class="px-nav-icon ion-edit"></i><span
+            <a href="/admin/adminTeacher"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All teachers</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="/admin/adminCourse"><i class="px-nav-icon ion-map"></i><span
+                    class="px-nav-label">All courses</span></a>
+        </li>
+        <li class="px-nav-item">
+            <a href="/admin/changePassword"><i class="px-nav-icon ion-edit"></i><span
                     class="px-nav-label">Change Password</span></a>
         </li>
         <li class="px-nav-item">
@@ -120,6 +128,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
+                    <img src="demo/avatars/1.jpg" alt="" class="px-navbar-image">
                     <!--<span class="hidden-md">John Doe</span>
                     --><span th:text="${user.name}" class="hidden-md">Anonymous</span>
                 </a>
@@ -145,6 +154,7 @@
             <th scope="col">Weeks</th>
             <th scope="col">Type</th>
             <th scope="col">Credits</th>
+            <th scope="col">Operation</th>
         </tr>
         </thead>
         <tbody>
@@ -157,7 +167,11 @@
             <td th:text="${course.courseWeek}"></td>
             <td th:text="${course.courseType}"></td>
             <td th:text="${course.credit}"></td>
-
+            <td>
+                <form action="#" th:action="@{'/editCourse/'+${user.name}+'/'+${course.id} +'/'+${user.college.name}}" th:method="get" >
+                    <button type="submit" class="btn btn-primary btn-sm">edit</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

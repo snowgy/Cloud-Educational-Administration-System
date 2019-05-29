@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -13,23 +16,45 @@ import javax.persistence.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @Column(name="course_id", nullable = false)
+    private Long id;
 
-    @Column(name="name")
+    @Column(name="name", nullable = false)
     private String name;
 
     @JsonBackReference(value = "student-select-course")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="student_id")
-    private User student;
+    @ManyToMany(mappedBy = "selectedCourses")
+    private Set<User> students = new HashSet<>();
+
+    public void addUser(User user){
+        students.add(user);
+        user.getSelectedCourses().add(this);
+    }
+
+    public void removeUser(User user){
+        students.remove(user);
+        user.getSelectedCourses().remove(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Course course = (Course) obj;
+        return this.id == course.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 
     @JsonBackReference(value = "teacher-manage-course")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="teacher_id")
     private User teacher;
 
+
     @Column(name="score")
-    private int score;
+    private Integer score;
 
     @Column(name="course_time")
     private String courseTime;
@@ -38,7 +63,7 @@ public class Course {
     private String classroom;
 
     @Column(name="course_week")
-    private int courseWeek;
+    private Integer courseWeek;
 
     @Column(name="course_type")
     private String courseType;

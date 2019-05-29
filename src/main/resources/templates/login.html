@@ -100,14 +100,13 @@
 
             <div class="box-cell col-md-5 bg-primary p-a-4">
               <div class="text-xs-center text-md-left">
-                <a class="px-demo-brand px-demo-brand-lg" href="userHome.html"><span class="px-demo-logo bg-primary m-t-0"><span class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span class="px-demo-logo-9"></span></span><span class="font-size-20 line-height-1">SUSTC</span></a>
+                <a class="px-demo-brand px-demo-brand-lg" href="index.html"><span class="px-demo-logo bg-primary m-t-0"><span class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span class="px-demo-logo-9"></span></span><span class="font-size-20 line-height-1">Cloud Edu</span></a>
                 <div class="font-size-15 m-t-1 line-height-1">Simple. Flexible. Powerful.</div>
               </div>
               <ul class="list-group m-t-3 m-b-0 visible-md visible-lg visible-xl">
-                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-sitemap text-white"></i> Upload and run scripts</li>
-                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-file-text-o text-white"></i> Multiple languages support</li>
-                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-outdent text-white"></i> User management system</li>
-                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-heart text-white"></i> Share favorate scripts</li>
+                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-sitemap text-white"></i> Three different roles</li>
+                <!--<li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-file-text-o text-white"></i> Multiple languages support</li>-->
+                <li class="list-group-item p-x-0 p-b-0 b-a-0"><i class="list-group-icon fa fa-outdent text-white"></i> Manage everything easier</li>
               </ul>
             </div>
 
@@ -123,6 +122,18 @@
                   <input type="text" class="page-signin-form-control form-control" placeholder="Username or Email" name = "username">
                 </fieldset>
 
+                <!--<div class=" form-group form-group-lg">-->
+                    <!--<select class=" form-control" th:each="college : ${colleges}" name="collegeName">-->
+                        <!--<option th:value="${college.name}"></option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <fieldset class="page-signin-form-group form-group form-group-lg">
+
+                      <select name="collegeName" class="page-signin-form-control form-control">
+                          <option th:each="college:${colleges}" th:value="${college.name}" th:text="${college.name}">1</option>
+                      </select>
+                </fieldset>
+
                 <fieldset class="page-signin-form-group form-group form-group-lg">
                   <div class="page-signin-icon text-muted"><i class="ion-asterisk"></i></div>
                   <input type="password" class="page-signin-form-control form-control" placeholder="Password" name = "password">
@@ -134,7 +145,6 @@
                     <span class="custom-control-indicator"></span>
                     Remember me
                   </label>
-                  <a href="#" class="font-size-12 text-muted pull-xs-right" id="page-signin-forgot-link">Forgot your password?</a>
                 </div>
 
                 <button type="submit" class="btn btn-block btn-lg btn-primary m-t-3">Login</button>
@@ -170,9 +180,9 @@
         </div>
       </div>
 
-      <div class="text-xs-center m-t-2 font-weight-bold font-size-14 text-white" id="px-demo-signup-link">
-        Not a member? <a href="/signup" class="text-white"><u>Sign Up now</u></a>
-      </div>
+      <!--<div class="text-xs-center m-t-2 font-weight-bold font-size-14 text-white" id="px-demo-signup-link">-->
+        <!--Not a member? <a href="/signup" class="text-white"><u>Sign Up now</u></a>-->
+      <!--</div>-->
     </div>
   </div>
 

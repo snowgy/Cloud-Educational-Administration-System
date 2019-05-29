@@ -28,4 +28,13 @@ public class College {
     )
     private List<User> users = new ArrayList<>();
 
+    @JsonBackReference(value = "course-college")
+    @OneToMany(
+            mappedBy = "college",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Course> courses = new ArrayList<>();
+
+
 }
