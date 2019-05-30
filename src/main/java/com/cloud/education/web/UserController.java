@@ -74,7 +74,7 @@ public class UserController {
         else if (subject.hasRole("student"))
             return "redirect:/student/studentHome";
 
-        return "/login";
+        return "redirect:/login";
     }
 
     @GetMapping(value = "/teacher/teacherHome")

@@ -1,8 +1,8 @@
 # Cloud Educational Administration System
 
-[![author](https://img.shields.io/badge/Author-yue%20gong-blue.svg)](https://github.com/snowgy) ![](<https://img.shields.io/badge/springboot-2.1.5-red.svg>)
+![Screen Shot 2019-05-31 at 1.00.25 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 1.00.25 AM.png)
 
-<img src="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3jwfr3nynj227o13ub2a.jpg" width="300"/>
+`Access my demo at 10.20.35.198:8081 (SUSTech School network only)`
 
 ## FEATURE
 
@@ -14,47 +14,13 @@
 
 ### Database Design
 
-<img src="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3jvokt9g3j21fo0ycdu2.jpg" width="300"/>
+![Screen Shot 2019-05-31 at 1.54.27 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 1.54.27 AM.png)
 
 The database design is relatively easy. We have six tables in total. They are `user`, `role`, `college`,`department`, `student_course` and `course`. One thing that need to mention is that we conbine student, teacher and admin into one simple object `user` and use the attribute **role** to distinguish them. In addition, teacher will have the attribute **grade** left blank and student will have the attribute **title** left blank.
 
 ### Web App Design
 
 My design for the app follows the MVC model. The `dao` layer is for database operation. The `model` layer is the data model used for `ORM ` (object relational mapping). The `sevice` layer contains the business logic. The `web` layer provided object for the front end.
-
-```shell
-.
-└── com
-    └── cloud
-        └── education
-            ├── EducationApplication.java
-            ├── dao
-            │   ├── CollegeRepository.java
-            │   ├── CourseRepository.java
-            │   ├── DepartmentRepository.java
-            │   ├── RoleRepository.java
-            │   └── UserRepository.java
-            ├── model
-            │   ├── College.java
-            │   ├── Course.java
-            │   ├── Department.java
-            │   ├── Role.java
-            │   └── User.java
-            ├── realm
-            │   ├── ShiroConfig.java
-            │   └── UserRealm.java
-            ├── service
-            │   ├── CollegeService.java
-            │   ├── CourseService.java
-            │   ├── DepartmentService.java
-            │   └── UserService.java
-            └── web
-                ├── AdminController.java
-                ├── CourseController.java
-                ├── StudentController.java
-                ├── TeacherController.java
-                └── UserController.java
-```
 
 ### Technique Stack
 
@@ -80,7 +46,41 @@ My design for the app follows the MVC model. The `dao` layer is for database ope
 
 ## RUNNING RESULT
 
-You can try three different roles by our provided user information.
+`You can try three different roles by our provided user information.`
 
-<img src="https://ws1.sinaimg.cn/mw690/74c2bf2dly1g3jwtwgu9mj227s140woq.jpg" width="300"/>
+![Screen Shot 2019-05-31 at 1.00.47 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 1.00.47 AM.png)
+
+### Student
+
+Student could view all the courses.
+
+![Screen Shot 2019-05-31 at 3.21.29 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.21.29 AM.png)
+
+Select course and drop course
+
+![Screen Shot 2019-05-31 at 3.22.26 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.22.26 AM.png)
+
+Edit their own password
+
+![Screen Shot 2019-05-31 at 3.22.54 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.22.54 AM.png)
+
+### Teacher
+
+Teacher can view all the courses they taught
+
+![Screen Shot 2019-05-31 at 3.25.32 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.25.32 AM.png)
+
+Change their own password
+
+![Screen Shot 2019-05-31 at 3.22.54 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.22.54 AM.png)
+
+### Admin
+
+admin can see information of all the teachers, students and courses.
+
+![Screen Shot 2019-05-31 at 3.27.26 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.27.26 AM.png)
+
+admin can also edit the information
+
+![Screen Shot 2019-05-31 at 3.27.40 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 3.27.40 AM.png)
 
