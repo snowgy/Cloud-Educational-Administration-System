@@ -61,7 +61,7 @@ public class UserController {
         } catch (Exception e) {
             model.addAttribute("message","Invalid Credential");
             // if unsuccessful
-            return "/login";
+            return "redirect:/login";
         }
 
         User user = userService.findUserByNameAndCollege(username, collegeName);

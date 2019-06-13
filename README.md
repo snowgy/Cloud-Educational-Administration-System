@@ -12,6 +12,12 @@
 
 ## DESIGN
 
+### SaaS Design
+
+My cloud educational administration system is a well-designed software service. Every school can use the service of my web app easily. I use a seperate table `college` in the database to record the information of each school. Each course or user in my database will associate with their own college. Therefore, user information and course information are well separated in the logic layer. Users from different schools cannot access each other's data. 
+
+If a user want to use this cloud system, I will firstly add his college into the `college` table and inject the college teacher, student and course information into the database. Then they can easily use our system.
+
 ### Database Design
 
 ![Screen Shot 2019-05-31 at 1.54.27 AM](/Users/gongyue/Desktop/Screen Shot 2019-05-31 at 1.54.27 AM.png)

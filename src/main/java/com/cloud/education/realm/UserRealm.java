@@ -19,9 +19,10 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        System.out.println("authorization is called");
         // get user role
-        String userName = (String) getAvailablePrincipal(principalCollection);
-        User user = userService.findUserByName(userName);
+        User user = (User) getAvailablePrincipal(principalCollection);
+        System.out.println("username: " + user.getName());
         Role role = user.getRole();
         // get user permissions
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -36,6 +37,7 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        System.out.println("authentication is called");
         // get username and collegeName
         String userNameAndCollegeName = (String) authenticationToken.getPrincipal();
         System.out.println("auth:" + userNameAndCollegeName);
@@ -52,7 +54,7 @@ public class UserRealm extends AuthorizingRealm {
             throw new IncorrectCredentialsException();
 
         // pass authentication
-        AuthenticationInfo aInfo = new SimpleAuthenticationInfo(userName, password, getName());
+        AuthenticationInfo aInfo = new SimpleAuthenticationInfo(user, password, getName());
         return aInfo;
     }
 }
