@@ -2,7 +2,7 @@
 
 [![author](https://img.shields.io/badge/Author-yue%20gong-blue.svg)](https://github.com/snowgy) ![](<https://img.shields.io/badge/springboot-2.1.5-red.svg>)
 
-<img width = '500' src ="images/index.png"/>
+<div align="center"> <img width = '700' src ="images/index.png"/> </div>
 
 `Access my demo at 10.20.35.198:8081 (SUSTech School network only)`
 
@@ -22,7 +22,7 @@ If a user want to use this cloud system, I will firstly add his college into the
 
 ### Database Design
 
-<img width = '500' src ="images/data_model.png"/>
+<div align="center"> <img width = '700' src ="images/data_model.png"/> </div>
 
 The database design is relatively easy. We have six tables in total. They are `user`, `role`, `college`,`department`, `student_course` and `course`. One thing that need to mention is that we conbine student, teacher and admin into one simple object `user` and use the attribute **role** to distinguish them. In addition, teacher will have the attribute **grade** left blank and student will have the attribute **title** left blank.
 
