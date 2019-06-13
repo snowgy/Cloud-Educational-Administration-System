@@ -2,7 +2,7 @@
 
 [![author](https://img.shields.io/badge/Author-yue%20gong-blue.svg)](https://github.com/snowgy) ![](<https://img.shields.io/badge/springboot-2.1.5-red.svg>)
 
-![Screen Shot 2019-05-31 at 1.00.25 AM](images/Screen Shot 2019-05-31 at 1.00.25 AM.png)
+![Screen Shot 2019-05-31 at 1.00.25 AM](https://github.com/snowgy/Cloud-Educational-Administration-System/tree/master/images/Screen Shot 2019-05-31 at 1.00.25 AM.png)
 
 `Access my demo at 10.20.35.198:8081 (SUSTech School network only)`
 
