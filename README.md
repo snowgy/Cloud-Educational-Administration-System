@@ -2,7 +2,7 @@
 
 [![author](https://img.shields.io/badge/Author-yue%20gong-blue.svg)](https://github.com/snowgy) ![](<https://img.shields.io/badge/springboot-2.1.5-red.svg>)
 
-<div align="center"> <img width = '700' src ="images/index.png"/> </div>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcfngnjj227o13ub2a.jpg"/> </div>
 
 `Access my demo at 10.20.35.198:8081 (SUSTech School network only)`
 
@@ -22,7 +22,7 @@ If a user want to use this cloud system, I will firstly add his college into the
 
 ### Database Design
 
-<div align="center"> <img width = '700' src ="images/data_model.png"/> </div>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc6exw3j21fo0ycdu2.jpg"/> </div>
 
 The database design is relatively easy. We have six tables in total. They are `user`, `role`, `college`,`department`, `student_course` and `course`. One thing that need to mention is that we conbine student, teacher and admin into one simple object `user` and use the attribute **role** to distinguish them. In addition, teacher will have the attribute **grade** left blank and student will have the attribute **title** left blank.
 
@@ -56,39 +56,39 @@ My design for the app follows the MVC model. The `dao` layer is for database ope
 
 `You can try three different roles by our provided user information.`
 
-<img width = '500' src ="images/intro.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwclrmt6j227s140woq.jpg"/>
 
 ### Student
 
 Student could view all the courses.
 
-<img width = '500' src ="images/gy_index.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/>
 
 Select course and drop course
 
-<img width = '500' src ="images/selected_course.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcya8crj227w0qsjv6.jpg"/>
 
 Edit their own password
 
-<img width = '500' src ="images/change_pass.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/>
 
 ### Teacher
 
 Teacher can view all the courses they taught
 
-<img width = '500' src ="images/teacher_index.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd5lj5aj227s0kcad0.jpg"/>
 
 Change their own password
 
-<img width = '500' src ="images/change_pass.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/>
 
 ### Admin
 
 admin can see information of all the teachers, students and courses.
 
-<img width = '500' src ="images/admin_index.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/>
 
 admin can also edit the information of students and courses
 
-<img width = '500' src ="images/stu_info_edit.png"/>
+<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd2i1u8j227m0yo0wg.jpg"/>
 
