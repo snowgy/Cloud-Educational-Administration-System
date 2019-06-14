@@ -66,7 +66,7 @@ Student could view all the courses.
 
 Select course and drop course
 
-<div align="center"><img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcya8crj227w0qsjv6.jpg"/> </div>
+<div align="center"><img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcya8crj227w0qsjv6.jpg"/> </div>
 
 Edit their own password
 
