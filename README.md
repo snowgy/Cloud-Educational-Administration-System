@@ -56,39 +56,43 @@ My design for the app follows the MVC model. The `dao` layer is for database ope
 
 `You can try three different roles by our provided user information.`
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwclrmt6j227s140woq.jpg"/>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwclrmt6j227s140woq.jpg"/> </div>
 
 ### Student
 
 Student could view all the courses.
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/>
+<div align="center"><img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/> </div>
 
 Select course and drop course
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcya8crj227w0qsjv6.jpg"/>
+<div align="center"><img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwcya8crj227w0qsjv6.jpg"/> </div>
 
 Edit their own password
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/></div>
 
 ### Teacher
 
 Teacher can view all the courses they taught
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd5lj5aj227s0kcad0.jpg"/>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd5lj5aj227s0kcad0.jpg"/></div>
+
+
 
 Change their own password
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwc38ob9j227w0rw416.jpg"/></div>
 
 ### Admin
 
 admin can see information of all the teachers, students and courses.
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/>
+<div align="center"><img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwca3xyxj227s110wjs.jpg"/> </div>
 
 admin can also edit the information of students and courses
 
-<img width = '500' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd2i1u8j227m0yo0wg.jpg"/>
+<div align="center"> <img width = '700' src ="https://ws1.sinaimg.cn/mw690/74c2bf2dgy1g3zwd2i1u8j227m0yo0wg.jpg"/></div>
+
+
 
